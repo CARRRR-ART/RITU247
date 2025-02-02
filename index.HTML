@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: url('RITU.jpg') no-repeat center center/cover;
+            color: #fff;
+            margin: 0;
+            padding: 20px;
+            transition: background 0.5s ease;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        .btn {
+            font-size: 1.5em;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .yes {
+            background-color: #ff66b2;
+            color: white;
+        }
+        .no {
+            background-color: #ff3333;
+            color: white;
+        }
+        .why-no {
+            background-color: #ffcc00;
+            color: black;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Audio Element -->
+    <audio id="valentineAudio" loop>
+        <source src="RITU6.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Play Button -->
+    <button id="playButton" class="btn yes" style="position: absolute; top: 20px; left: 20px;">Play Music 🎵</button>
+
+    <!-- Main Page -->
+    <div id="mainPage" class="container">
+        <h1>Will You Be My Valentine? 💖</h1>
+        <div class="buttons">
+            <button class="btn yes" onclick="alert('Yay! I love you! 💖')">Yes</button>
+            <button class="btn no" onclick="showSurePage()">No</button>
+        </div>
+    </div>
+
+    <!-- "Are You Sure?" Page -->
+    <div id="surePage" class="container hidden">
+        <h1>Are You Sure? 😢</h1>
+        <div class="buttons">
+            <button class="btn why-no" onclick="showGajraMessage()">Why No, Madam Ji?</button>
+        </div>
+    </div>
+
+    <!-- Gift Page -->
+    <div id="giftPage" class="container hidden">
+        <h1>This was your gift 💐</h1>
+        <div class="buttons">
+            <button class="btn yes" onclick="showFourthPage()">Are you ready?</button>
+        </div>
+    </div>
+
+    <!-- Fourth Page -->
+    <div id="fourthPage" class="container hidden">
+        <h1>She is so cutu and puchu puchu! 😍</h1>
+    </div>
+
+    <script>
+        // Audio Play Functionality
+        const audio = document.getElementById('valentineAudio');
+        const playButton = document.getElementById('playButton');
+
+        playButton.addEventListener('click', () => {
+            audio.play();
+            playButton.textContent = "Music Playing 🎶";
+        });
+
+        // Page Navigation Functions
+        function showSurePage() {
+            document.getElementById('mainPage').classList.add('hidden');
+            document.getElementById('surePage').classList.remove('hidden');
+            document.body.style.backgroundImage = "url('RITU1.jpg')";
+        }
+
+        function showGajraMessage() {
+            alert("Thik about it again....I have one Gajra for you 💐");
+            document.getElementById('surePage').classList.add('hidden');
+            document.getElementById('giftPage').classList.remove('hidden');
+            document.body.style.backgroundImage = "url('RITU4.jpg')";
+        }
+
+        function showFourthPage() {
+            document.getElementById('giftPage').classList.add('hidden');
+            document.getElementById('fourthPage').classList.remove('hidden');
+            document.body.style.backgroundImage = "url('RITU3.jpg')";
+        }
+    </script>
+</body>
+</html>
